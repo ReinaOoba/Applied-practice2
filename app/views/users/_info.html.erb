@@ -18,10 +18,12 @@
   </tr>
 </table>
 
-<% if user == current_user %>
-  <div class='row'>
+<div class='row'>
+  <% if user != current_user %>
+    <td><%= render "relationships/follow_btn", user: user %></td>
+  <% else %>
     <%= link_to edit_user_path(user), class: "btn btn-outline-secondary btn-block edit_user_#{user.id}" do %>
       <i class="fas fa-user-cog"></i>
     <% end %>
-  </div>
-<% end %>
+  <% end %>
+</div>
